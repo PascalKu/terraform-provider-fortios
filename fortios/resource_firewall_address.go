@@ -222,7 +222,7 @@ func resourceFirewallAddress() *schema.Resource {
 				ValidateFunc: validation.StringLenBetween(0, 35),
 				Optional:     true,
 			},
-			"comment": &schema.Schema{
+			"comments": &schema.Schema{
 				Type:         schema.TypeString,
 				ValidateFunc: validation.StringLenBetween(0, 255),
 				Optional:     true,
@@ -1094,9 +1094,9 @@ func refreshObjectFirewallAddress(d *schema.ResourceData, o map[string]interface
 		}
 	}
 
-	if err = d.Set("comment", flattenFirewallAddressComment(o["comment"], d, "comment", sv)); err != nil {
-		if !fortiAPIPatch(o["comment"]) {
-			return fmt.Errorf("Error reading comment: %v", err)
+	if err = d.Set("comments", flattenFirewallAddressComment(o["comments"], d, "comments", sv)); err != nil {
+		if !fortiAPIPatch(o["comments"]) {
+			return fmt.Errorf("Error reading comments: %v", err)
 		}
 	}
 
@@ -1885,15 +1885,15 @@ func getObjectFirewallAddress(d *schema.ResourceData, sv string) (*map[string]in
 		obj["sw-version"] = nil
 	}
 
-	if v, ok := d.GetOk("comment"); ok {
-		t, err := expandFirewallAddressComment(d, v, "comment", sv)
+	if v, ok := d.GetOk("comments"); ok {
+		t, err := expandFirewallAddressComment(d, v, "comments", sv)
 		if err != nil {
 			return &obj, err
 		} else if t != nil {
-			obj["comment"] = t
+			obj["comments"] = t
 		}
-	} else if d.HasChange("comment") {
-		obj["comment"] = nil
+	} else if d.HasChange("comments") {
+		obj["comments"] = nil
 	}
 
 	if v, ok := d.GetOk("visibility"); ok {

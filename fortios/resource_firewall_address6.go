@@ -183,7 +183,7 @@ func resourceFirewallAddress6() *schema.Resource {
 					},
 				},
 			},
-			"comment": &schema.Schema{
+			"comments": &schema.Schema{
 				Type:         schema.TypeString,
 				ValidateFunc: validation.StringLenBetween(0, 255),
 				Optional:     true,
@@ -878,9 +878,9 @@ func refreshObjectFirewallAddress6(d *schema.ResourceData, o map[string]interfac
 		}
 	}
 
-	if err = d.Set("comment", flattenFirewallAddress6Comment(o["comment"], d, "comment", sv)); err != nil {
-		if !fortiAPIPatch(o["comment"]) {
-			return fmt.Errorf("Error reading comment: %v", err)
+	if err = d.Set("comments", flattenFirewallAddress6Comment(o["comments"], d, "comments", sv)); err != nil {
+		if !fortiAPIPatch(o["comments"]) {
+			return fmt.Errorf("Error reading comments: %v", err)
 		}
 	}
 
@@ -1410,12 +1410,12 @@ func getObjectFirewallAddress6(d *schema.ResourceData, sv string) (*map[string]i
 		}
 	}
 
-	if v, ok := d.GetOk("comment"); ok {
-		t, err := expandFirewallAddress6Comment(d, v, "comment", sv)
+	if v, ok := d.GetOk("comments"); ok {
+		t, err := expandFirewallAddress6Comment(d, v, "comments", sv)
 		if err != nil {
 			return &obj, err
 		} else if t != nil {
-			obj["comment"] = t
+			obj["comments"] = t
 		}
 	}
 
