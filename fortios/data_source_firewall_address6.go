@@ -144,7 +144,7 @@ func dataSourceFirewallAddress6() *schema.Resource {
 					},
 				},
 			},
-			"comment": &schema.Schema{
+			"comments": &schema.Schema{
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -668,9 +668,9 @@ func dataSourceRefreshObjectFirewallAddress6(d *schema.ResourceData, o map[strin
 		}
 	}
 
-	if err = d.Set("comment", dataSourceFlattenFirewallAddress6Comment(o["comment"], d, "comment")); err != nil {
-		if !fortiAPIPatch(o["comment"]) {
-			return fmt.Errorf("Error reading comment: %v", err)
+	if err = d.Set("comments", dataSourceFlattenFirewallAddress6Comment(o["comments"], d, "comments")); err != nil {
+		if !fortiAPIPatch(o["comments"]) {
+			return fmt.Errorf("Error reading comments: %v", err)
 		}
 	}
 

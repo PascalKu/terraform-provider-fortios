@@ -38,7 +38,7 @@ The following attributes are exported:
 * `obj_id` - Object ID for NSX.
 * `list` - IP address list. The structure of `list` block is documented below.
 * `tagging` - Config object tagging The structure of `tagging` block is documented below.
-* `comment` - Comment.
+* `comments` - Comments.
 * `template` - IPv6 address template.
 * `subnet_segment` - IPv6 subnet segments. The structure of `subnet_segment` block is documented below.
 * `host_type` - Host type.

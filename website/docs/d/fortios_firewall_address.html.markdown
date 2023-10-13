@@ -65,7 +65,7 @@ The following attributes are exported:
 * `hw_model` - Dynamic address matching hardware model.
 * `os` - Dynamic address matching operating system.
 * `sw_version` - Dynamic address matching software version.
-* `comment` - Comment.
+* `comments` - Comments.
 * `visibility` - Enable/disable address visibility in the GUI.
 * `associated_interface` - Network interface associated with address.
 * `color` - Color of icon on the GUI.
