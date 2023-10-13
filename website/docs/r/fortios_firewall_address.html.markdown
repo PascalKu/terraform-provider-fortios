@@ -63,7 +63,7 @@ The following arguments are supported:
 * `hw_model` - Dynamic address matching hardware model.
 * `os` - Dynamic address matching operating system.
 * `sw_version` - Dynamic address matching software version.
-* `comment` - Comment.
+* `comments` - Comments.
 * `visibility` - Enable/disable address visibility in the GUI. Valid values: `enable`, `disable`.
 * `associated_interface` - Network interface associated with address.
 * `color` - Color of icon on the GUI.
